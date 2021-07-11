@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  
+  <body>
+    <h1 style="text-align:center; margin-top:20%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: teal">
+      YOOOO! Let's play "Rock, Paper, Scissors!"<br />Refresh to play again!
+    </h1>
+
+    <hero>
+      <img style="text-align:center; max-height: 100%; max-width: 100%" alt="high-five" src="assets/images/high-five.png">
+    </hero>
+
+    <script type="text/javascript">
+      
+      var gameChoices = ["r", "p", "s"];
+
+    
+      var wins = 0;
+      var losses = 0;
+      var ties = 0;
+
+      // for (var i = 0; i < 3; i++) {
+
+        while (wins + losses + ties < 3) {
+        var computerTurn = gameChoices[
+          Math.floor(Math.random() * gameChoices.length)
+      ];
+      
+      var computerTurnFull = function (input) {
+          if (input === "r") {
+          computerTurnFull = "Rock";
+        }
+          else if (input === "s") {
+            computerTurnFull = "Scissors"
+          }
+          else if (input === "p") {
+            computerTurnFull = "Paper"
+          }
+          if (computerTurnFull === undefined) {
+            return "itself for further TSA screening."
+          }
+          return computerTurnFull
+        }
+
+        var userTurn = prompt("IT'S ROCK, PAPER, SCISSORS TIME, HOMIE! \nBest 2 out of 3? \nEnter 'R' or 'P' or 'S' to play!");
+        userTurn = userTurn.toLowerCase();
+
+        
+      if (userTurn === "r" || userTurn === "p" || userTurn === "s") {
+        
+        alert("The computer has randomly selected " + computerTurnFull(computerTurn) + ".");
+      }
+        
+      
+      if (
+        (userTurn === "r" && computerTurn === "s") ||
+        (userTurn === "s" && computerTurn === "p") ||
+        (userTurn === "p" && computerTurn === "r")
+      ){ 
+        wins++;
+        alert("YOU WON " + wins + " TIME(S)!");
+      }  
+      else if 
+        (userTurn === computerTurn) 
+      {
+        ties++;
+        alert("You tied " + ties + " time(s). Great minds, you know?");
+      } 
+      else if (
+        (userTurn === "r" && computerTurn === "p") ||
+        (userTurn === "p" && computerTurn === "s") ||
+        (userTurn === "s" && computerTurn === "r")  
+      )
+      {
+        losses++;       
+          alert("You lost " + losses + " time(s). This game and our choices--much like the universe--are predictably unpredictable. In any case, SUCKS TO SUCK!");
+      }
+      else {
+        alert("I gotta repeat myself? \nEnter 'r' or 'p' or 's' to play. \nC'mon... You know you wanna.");
+      }
+    } 
+      
+      alert(
+        "And your epic totals are... *cue drumroll*" + 
+        "\nTotal wins: " + 
+        wins +
+        "\nTotal ties: " +
+        ties +
+        "\nTotal losses: " + 
+        losses
+      );
+      
+    </script>
+  </body>
+</html>
